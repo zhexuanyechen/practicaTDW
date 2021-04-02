@@ -72,14 +72,14 @@ function imprimirCheckbox(arrayAux, localArray, atributo) {
         let idAux = localArray[i].id;
         if (localArray[i].tipo == atributo) {
             let checked = "";
-            for (let i = 0; i < arrayAux.length; i++) {
-                if (arrayAux[i] == idAux) {
+            for (let j = 0; j < arrayAux.length; j++) {
+                if (arrayAux[j] == idAux) {
                     checked = "checked";
                 } //Checkea los que ya tiene
             }
             document.getElementById(atributo).innerHTML +=
                 "<div class='form-check'><input type='checkbox' class='form-check-input' name='" + atributo + "' value='" + idAux + "' id='" + idAux + "'" + checked + ">" +
-                "<label class='form-check-label' for='" + idAux + "'>" + idAux + "</label></div>";
+                "<label class='form-check-label' for='" + idAux + "'>" + localArray[i].nombre + "</label></div>";
             checked = "";
         }
     }

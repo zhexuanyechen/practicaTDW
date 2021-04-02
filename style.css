@@ -113,6 +113,10 @@ button>img {
     text-transform: capitalize;
 }
 
+.datos {
+    overflow: hidden;
+}
+
 @media only screen and (max-width: 768px) {
     .card>img {
         width: 100%;
@@ -127,7 +131,8 @@ button>img {
 @media only screen and (max-width: 1000px) and (min-width:768px) {
 
     .red,
-    .editar {
+    .editar,
+    .loginbtn {
         padding: 0.2em 1em;
         font-size: 1rem;
     }
