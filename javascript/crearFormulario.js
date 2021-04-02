@@ -1,6 +1,7 @@
 let elemId, indiceElem, objetoEditar;
-let formulario = document.getElementById("mBodyFormulario");
+const formulario = document.getElementById("mBodyFormulario");
 let localArray = JSON.parse(localStorage.getItem("cargaArray"));
+const tituloForm = document.getElementById("modalFormTitulo");
 
 function crear(ID) {
     document.getElementById("save").innerHTML = "<button type='submit' id='guardarNuevo' class='btn loginbtn' data-bs-dismiss='modal'> Guardar </button>";
@@ -86,6 +87,7 @@ function imprimirCheckbox(arrayAux, localArray, atributo) {
 } //Imprime todas las opciones de personas o entidades
 
 function editar(elem) {
+    tituloForm.innerHTML = "Editar";
     elemId = elem.parentNode.parentNode.id;
     objetoEditar = localizarElem(elemId);
     console.log("editando objeto con id:" + objetoEditar["id"]);
@@ -97,19 +99,20 @@ function cargarFormulario(objetoF) {
     for (let atributo in objetoF) {
         if (atributo == "nombre") {
             formulario.innerHTML += "<div class='mb-2'><label for='nombre' class='form-label'>Nombre</label>" +
-                "<input type='text' class='form-control' value='" + objetoF[atributo] + "' id='nombre'></div>";
+                "<input type='text' class='form-control' value='" + objetoF[atributo] + "' id='nombre' required></div>";
         } else if (atributo == "fecha_nac" || atributo == "fecha_def") {
             formulario.innerHTML += "<div class='mb-2'><label for='" + atributo + "' class='form-label'>" + atributo + "</label>" +
                 "<input type='date' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "'></div>";
         } else if (atributo == "wiki" || atributo == "img") {
             formulario.innerHTML += "<div class='mb-2'><label for='" + atributo + "' class='form-label'>" + atributo + "</label>" +
-                "<input type='url' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "'></div>";
+                "<input type='url' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "' required></div>";
         } else if (atributo == "persona" || atributo == "entidad") {
             formulario.innerHTML += "<div class='mb-2' id='" + atributo + "'><h4>" + atributo + "</h4>";
             imprimirCheckbox(objetoF[atributo], localArray, atributo);
             formulario.innerHTML += "</div>";
         }
     }
+    document.getElementById("mFooter2").style.display = "flex";
 } //Carga el formulario para editar o crear
 
 document.getElementById("guardarCambios").addEventListener("click", function () {

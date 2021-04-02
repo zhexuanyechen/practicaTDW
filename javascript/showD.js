@@ -16,10 +16,16 @@ function showD(elem) {
             formulario.innerHTML += "<div class='mb-2'><h4>" + atributo + "</h4><p class='datos'>" + objetoShow[atributo] + "</p></div>";
         }
     }
+
+    tituloForm.innerHTML = objetoShow["nombre"];
+    document.getElementById("mFooter2").style.display = "none";
 }
 
 document.querySelectorAll(".imagen").forEach(item => {
     item.addEventListener("click", function () {
         showD(this);
+    })
+    item.addEventListener("error", function () {
+        item.src = "/iconos/not-found-image.jpg";
     })
 })

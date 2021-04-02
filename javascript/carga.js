@@ -42,7 +42,7 @@ function Producto(id, nombre, fecha_inic, fecha_fin, img, wiki, personas, entida
 }
 
 let xhtml = new Producto("xhtml", "eXtensible HyperText Markup Language", "2000-01-26", "", "https://image.flaticon.com/icons/png/512/28/28780.png", "https://es.wikipedia.org/wiki/XHTML", [], ["w3c"]);
-let xml = new Producto("xml", "eXtensible Markup Language", "1998-02-10", "", "https://img2.freepng.es/20181205/fu/kisspng-xml-scalable-vector-graphics-image-data-web-feed-jules-thuillier-ampquot-old-remote-app-brains-5c0881bd8bd6c5.2990553315440613735728.jpg", "https://en.wikipedia.org/wiki/XML#Versions", [], ["w3c"]);
+let xml = new Producto("xml", "eXtensible Markup Language", "1998-02-10", "", "https://png.pngtree.com/element_our/png_detail/20181227/xml-vector-icon-png_287418.jpg", "https://en.wikipedia.org/wiki/XML#Versions", [], ["w3c"]);
 let html = new Producto("html", "HyperText Markup Language", "1993-01-01", "", "https://www.loopeando.com/wp-content/uploads/2016/11/html5.jpg", "https://es.wikipedia.org/wiki/HTML", [], ["w3c"]);
 let js = new Producto("js", "JavaScript", "1995-01-01", "", "https://oddbytes.net/wp-content/uploads/2018/01/Js-logo.png", "https://es.wikipedia.org/wiki/JavaScript", ["brendan"], ["mozilla"]);
 let css = new Producto("css", "Cascading Style Sheets", "1996-12-17", "", "https://extassisnetwork.com/tutoriales/wp-content/uploads/Que-es-CSS.jpg", "https://es.wikipedia.org/wiki/Hoja_de_estilos_en_cascada", [], ["w3c"]);

@@ -108,6 +108,10 @@ button>img {
     box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.5);
 }
 
+.imagen {
+    cursor: pointer;
+}
+
 #mBodyFormulario label,
 #mBodyFormulario h4 {
     text-transform: capitalize;
