@@ -56,31 +56,14 @@ function cargarObjetos(id, objeto) {
 }
 
 function cargarDatosLocal() {
-    localStorage.setItem("ibm", JSON.stringify(ibm));
-    localStorage.setItem("w3c", JSON.stringify(w3c));
-    localStorage.setItem("microsoft", JSON.stringify(microsoft));
-    localStorage.setItem("mozilla", JSON.stringify(mozilla));
-    localStorage.setItem("xhtml", JSON.stringify(xhtml));
-    localStorage.setItem("xml", JSON.stringify(xml));
-    localStorage.setItem("html", JSON.stringify(html));
-    localStorage.setItem("js", JSON.stringify(js));
-    localStorage.setItem("css", JSON.stringify(css));
-    localStorage.setItem("http", JSON.stringify(http));
-    localStorage.setItem("tim", JSON.stringify(tim));
-    localStorage.setItem("brendan", JSON.stringify(brendan));
-    localStorage.setItem("vannevar", JSON.stringify(vannevar));
-    localStorage.setItem("bill", JSON.stringify(bill));
-
     let cargaArray = [tim, brendan, vannevar, bill, xhtml, xml, html, js, css, http, ibm, w3c, microsoft, mozilla];
     localStorage.setItem("cargaArray", JSON.stringify(cargaArray));
-    datosCargados = true;
 }
 
 function cargarIndex() {
     let productosId = document.getElementById("productos");
     let entidadesId = document.getElementById("entidades");
     let personasId = document.getElementById("personas");
-
     let array = JSON.parse(localStorage.getItem("cargaArray"));
 
     for (let i = 0; i < array.length; i++) {

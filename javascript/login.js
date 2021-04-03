@@ -1,3 +1,7 @@
+const documento = document.documentElement;
+const loginbtn = document.getElementById("loginNav");
+const logoutbtn = document.getElementById("logout");
+
 function Escritor(user, pwd) {
     this.user = user;
     this.pwd = pwd;
@@ -37,14 +41,16 @@ function showBtn() {
         for (let i = 0; i < displaybtn.length; i++) {
             displaybtn[i].style.display = "flex";
         }
-        document.getElementById("loginNav").style.display = "none";
-        document.getElementById("logout").style.display = "block";
+        loginbtn.style.display = "none";
+        logoutbtn.style.display = "block";
+        documento.style.setProperty("--displayCrear", "block");
     } else {
         for (let i = 0; i < displaybtn.length; i++) {
             displaybtn[i].style.display = "none";
         }
-        document.getElementById("loginNav").style.display = "block";
-        document.getElementById("logout").style.display = "none";
+        loginbtn.style.display = "block";
+        logoutbtn.style.display = "none";
+        documento.style.setProperty("--displayCrear", "none");
     }
 }
 

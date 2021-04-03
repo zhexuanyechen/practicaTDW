@@ -12,6 +12,8 @@ function showD(elem) {
                 let texto = elemAux.nombre;
                 document.getElementById(id).innerHTML += "<li>" + texto + "</li>";
             }
+        } else if (atributo == "wiki") {
+            formulario.innerHTML += "<div class='mb-2 wiki'><h4>" + atributo + "</h4><a href='" + objetoShow[atributo] + "' class='datos' target='_blanck'>" + objetoShow[atributo] + "</a></div>";
         } else if (atributo != "id" && atributo != "tipo") {
             formulario.innerHTML += "<div class='mb-2'><h4>" + atributo + "</h4><p class='datos'>" + objetoShow[atributo] + "</p></div>";
         }
