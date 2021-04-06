@@ -21,7 +21,7 @@ function crear(ID) {
     document.getElementById("guardarNuevo").addEventListener("click", function () {
         guardar(objetoCrear, false);
     });
-} //Crea un nuevo objeto
+}
 
 function guardar(elemGuardar, editando) {
     let objetoGuardar = elemGuardar;
@@ -46,7 +46,7 @@ function guardar(elemGuardar, editando) {
     localStorage.setItem("cargaArray", JSON.stringify(localArray));
     cargarIndex();
     location.reload();
-} //Guarda un nuevo objeto o los cambios realizados
+}
 
 function guardarCheckbox(atributo) {
     let array = document.getElementsByName(atributo);
@@ -57,16 +57,17 @@ function guardarCheckbox(atributo) {
         }
     });
     return arrayAux;
-} //Recorre los valores del Checkbox y los guarda en un array
+}
 
 function localizarElem(elemId) {
     indiceElem = localArray.map(function (item) {
         return item.id;
-    }).indexOf(elemId); // encuentra el indice del elemento pasado
+    }).indexOf(elemId);
+
     let objetoLocalizado = localArray[indiceElem];
     console.log(objetoLocalizado);
     return objetoLocalizado;
-} //Devuelve el objeto dado un indice
+}
 
 function imprimirCheckbox(arrayAux, localArray, atributo) {
     for (let i = 0; i < localArray.length; i++) {
@@ -76,7 +77,7 @@ function imprimirCheckbox(arrayAux, localArray, atributo) {
             for (let j = 0; j < arrayAux.length; j++) {
                 if (arrayAux[j] == idAux) {
                     checked = "checked";
-                } //Checkea los que ya tiene
+                }
             }
             document.getElementById(atributo).innerHTML +=
                 "<div class='form-check'><input type='checkbox' class='form-check-input' name='" + atributo + "' value='" + idAux + "' id='" + idAux + "'" + checked + ">" +
@@ -84,7 +85,7 @@ function imprimirCheckbox(arrayAux, localArray, atributo) {
             checked = "";
         }
     }
-} //Imprime todas las opciones de personas o entidades
+}
 
 function editar(elem) {
     tituloForm.innerHTML = "Editar";
@@ -92,7 +93,7 @@ function editar(elem) {
     objetoEditar = localizarElem(elemId);
     console.log("editando objeto con id:" + objetoEditar["id"]);
     cargarFormulario(objetoEditar);
-} //Permite editar un objeto
+}
 
 function cargarFormulario(objetoF) {
     formulario.innerHTML = "";
@@ -103,7 +104,7 @@ function cargarFormulario(objetoF) {
         } else if (atributo == "fecha_nac" || atributo == "fecha_def") {
             formulario.innerHTML += "<div class='mb-2'><label for='" + atributo + "' class='form-label'>" + atributo + "</label>" +
                 "<input type='date' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "'></div>";
-        } else if (atributo == "wiki" || atributo == "img") {
+        } else if (atributo == "wiki" || atributo == "imagen") {
             formulario.innerHTML += "<div class='mb-2'><label for='" + atributo + "' class='form-label'>" + atributo + "</label>" +
                 "<input type='url' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "' required></div>";
         } else if (atributo == "persona" || atributo == "entidad") {
@@ -113,7 +114,7 @@ function cargarFormulario(objetoF) {
         }
     }
     document.getElementById("mFooter2").style.display = "flex";
-} //Carga el formulario para editar o crear
+}
 
 document.getElementById("guardarCambios").addEventListener("click", function () {
     guardar(objetoEditar, true);

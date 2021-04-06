@@ -4,7 +4,7 @@ function showD(elem) {
     formulario.innerHTML = "";
 
     for (let atributo in objetoShow) {
-        if (atributo == "persona" || atributo == "entidad") {
+        if (atributo == "personas" || atributo == "entidad") {
             let id = "lista" + atributo;
             formulario.innerHTML += "<div class='mb-2'><h4>" + atributo + "</h4><ul class='datos' id='" + id + "'></ul></div>";
             for (let i = 0; i < objetoShow[atributo].length; i++) {
@@ -30,4 +30,4 @@ document.querySelectorAll(".imagen").forEach(item => {
     item.addEventListener("error", function () {
         item.src = "/iconos/not-found-image.jpg";
     })
-})
+});

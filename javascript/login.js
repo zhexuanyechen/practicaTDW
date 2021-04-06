@@ -7,14 +7,20 @@ function Escritor(user, pwd) {
     this.pwd = pwd;
 }
 
-let x = new Escritor("x", "x");
-let y = new Escritor("y", "y");
-let z = new Escritor("z", "z");
-let usuarios = [x, y, z];
+function cargarUsers() {
+    if (localStorage.getItem("usuarios") === null) {
+        let x = new Escritor("x", "x");
+        let y = new Escritor("y", "y");
+        let z = new Escritor("z", "z");
+        let usuarios = [x, y, z];
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    }
+}
 
 function login() {
     let user = document.getElementById("usuario").value;
     let password = document.getElementById("pwd").value;
+    let usuarios = JSON.parse(localStorage.getItem("usuarios"));
 
     for (let i = 0; i < usuarios.length; i++) {
         if (usuarios[i].user == user && usuarios[i].pwd == password) {
@@ -54,4 +60,5 @@ function showBtn() {
     }
 }
 
-showBtn()
+cargarUsers();
+showBtn();
