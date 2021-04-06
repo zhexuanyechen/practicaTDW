@@ -91,6 +91,18 @@ function cargarPagina() {
 cargarDatosLocal(); //Descomentar por si se quiere volver a los valores preterminados
 cargarPagina();
 
+function borrar(elem) {
+    let elemId = elem.parentNode.parentNode.id;
+    let borrarElem = localArray.map(function (item) {
+        return item.id;
+    }).indexOf(elemId);
+
+    document.getElementById(elemId).style.display = "none";
+    localArray.splice(borrarElem, 1);
+    console.log(localArray);
+    localStorage.setItem("cargaArray", JSON.stringify(localArray));
+}
+
 document.querySelectorAll(".borrar").forEach(item => {
     item.addEventListener("click", function () {
         borrar(this);
