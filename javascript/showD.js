@@ -4,7 +4,7 @@ function showD(elem) {
     formulario.innerHTML = "";
 
     for (let atributo in objetoShow) {
-        if (atributo == "personas" || atributo == "entidad") {
+        if (atributo == "personas" || atributo == "entidades") {
             let id = "lista" + atributo;
             formulario.innerHTML += "<div class='mb-2'><h4>" + atributo + "</h4><ul class='datos' id='" + id + "'></ul></div>";
             for (let i = 0; i < objetoShow[atributo].length; i++) {

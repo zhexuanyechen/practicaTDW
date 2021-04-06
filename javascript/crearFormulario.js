@@ -30,11 +30,11 @@ function guardar(elemGuardar, editando) {
     for (let i = 0; i < inputs.length; i++)
         objetoGuardar[inputs[i].id] = inputs[i].value;
 
-    if (objetoGuardar["persona"] != null)
-        objetoGuardar["persona"] = guardarCheckbox("persona");
+    if (objetoGuardar["personas"] != null)
+        objetoGuardar["personas"] = guardarCheckbox("personas");
 
-    if (objetoGuardar["entidad"] != null)
-        objetoGuardar["entidad"] = guardarCheckbox("entidad");
+    if (objetoGuardar["entidades"] != null)
+        objetoGuardar["entidades"] = guardarCheckbox("entidades");
 
     if (editando === true) {
         localArray[indiceElem] = objetoGuardar;
@@ -107,7 +107,7 @@ function cargarFormulario(objetoF) {
         } else if (atributo == "wiki" || atributo == "imagen") {
             formulario.innerHTML += "<div class='mb-2'><label for='" + atributo + "' class='form-label'>" + atributo + "</label>" +
                 "<input type='url' class='form-control' value='" + objetoF[atributo] + "' id='" + atributo + "' required></div>";
-        } else if (atributo == "persona" || atributo == "entidad") {
+        } else if (atributo == "personas" || atributo == "entidades") {
             formulario.innerHTML += "<div class='mb-2' id='" + atributo + "'><h4>" + atributo + "</h4>";
             imprimirCheckbox(objetoF[atributo], localArray, atributo);
             formulario.innerHTML += "</div>";

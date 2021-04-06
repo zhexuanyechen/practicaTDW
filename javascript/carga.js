@@ -5,7 +5,7 @@ function Persona(id, nombre, fecha_nac, fecha_muerto, img, wiki) {
     this.fecha_def = fecha_muerto;
     this.imagen = img;
     this.wiki = wiki;
-    this.tipo = "persona";
+    this.tipo = "personas";
 }
 
 function Entidad(id, nombre, fecha_inic, fecha_fin, img, wiki, personas) {
@@ -15,8 +15,8 @@ function Entidad(id, nombre, fecha_inic, fecha_fin, img, wiki, personas) {
     this.fecha_def = fecha_fin;
     this.imagen = img;
     this.wiki = wiki;
-    this.tipo = "entidad";
-    this.persona = personas;
+    this.tipo = "entidades";
+    this.personas = personas;
 }
 
 function Producto(id, nombre, fecha_inic, fecha_fin, img, wiki, personas, entidades) {
@@ -27,8 +27,8 @@ function Producto(id, nombre, fecha_inic, fecha_fin, img, wiki, personas, entida
     this.imagen = img;
     this.wiki = wiki;
     this.tipo = "producto";
-    this.persona = personas;
-    this.entidad = entidades;
+    this.personas = personas;
+    this.entidades = entidades;
 }
 
 function cargarObjetos(id, objeto) {
@@ -48,7 +48,7 @@ function cargarDatosLocal() {
     let ibm = new Entidad("ibm", "IBM", "1911-06-06", "", "https://geekzilla.tech/home/wp-content/uploads/2020/10/ibm_cv-1-710x375-1.jpg", "https://es.wikipedia.org/wiki/IBM", [])
     let w3c = new Entidad("w3c", "World Wide Web Consortium", "1994-10-01", "", "https://img.flaticon.com/icons/png/512/1458/1458746.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF", "https://es.wikipedia.org/wiki/World_Wide_Web_Consortium", ["tim"]);
     let microsoft = new Entidad("microsoft", "Microsoft", "1975-03-04", "", "https://png.pngtree.com/element_our/md/20180627/md_5b334611860fa.jpg", "https://es.wikipedia.org/wiki/Microsoft", ["bill"]);
-    let mozilla = new Entidad("mozilla", "Fundacion Mozilla", "2003-07-15", "", "https://www.silicon.es/wp-content/uploads/2015/11/mozilla-foundation-logo.jpg", ["brendan"]);
+    let mozilla = new Entidad("mozilla", "Fundacion Mozilla", "2003-07-15", "", "https://www.silicon.es/wp-content/uploads/2015/11/mozilla-foundation-logo.jpg", "https://es.wikipedia.org/wiki/Fundaci%C3%B3n_Mozilla", ["brendan"]);
 
     let xhtml = new Producto("xhtml", "eXtensible HyperText Markup Language", "2000-01-26", "", "https://image.flaticon.com/icons/png/512/28/28780.png", "https://es.wikipedia.org/wiki/XHTML", [], ["w3c"]);
     let xml = new Producto("xml", "eXtensible Markup Language", "1998-02-10", "", "https://png.pngtree.com/element_our/png_detail/20181227/xml-vector-icon-png_287418.jpg", "https://en.wikipedia.org/wiki/XML#Versions", [], ["w3c"]);
@@ -62,17 +62,17 @@ function cargarDatosLocal() {
 }
 
 function cargarIndex() {
-    let productosId = document.getElementById("productos");
-    let entidadesId = document.getElementById("entidades");
-    let personasId = document.getElementById("personas");
+    let productosId = document.getElementById("productosCol");
+    let entidadesId = document.getElementById("entidadesCol");
+    let personasId = document.getElementById("personasCol");
     let array = JSON.parse(localStorage.getItem("cargaArray"));
 
     for (let i = 0; i < array.length; i++) {
-        if (array[i].tipo == "persona") {
+        if (array[i].tipo == "personas") {
             cargarObjetos(personasId, array[i]);
         } else if (array[i].tipo == "producto") {
             cargarObjetos(productosId, array[i]);
-        } else if (array[i].tipo == "entidad") {
+        } else if (array[i].tipo == "entidades") {
             cargarObjetos(entidadesId, array[i]);
         }
     }
@@ -88,7 +88,7 @@ function cargarPagina() {
     }
 };
 
-//cargarDatosLocal(); //Descomentar por si se quiere volver a los valores preterminados
+cargarDatosLocal(); //Descomentar por si se quiere volver a los valores preterminados
 cargarPagina();
 
 document.querySelectorAll(".borrar").forEach(item => {
